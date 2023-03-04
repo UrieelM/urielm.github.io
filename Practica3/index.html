@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        /*Comentario en Styles*/
+        table{
+            width: 100%
+        }
+        td{
+            border: 5px solid #000000;
+            padding-top: 50px;      
+            padding-bottom: 50px;
+            padding-left: 100px;
+        }
+        #titulo{
+            text-align: center;
+        }
+        #grad1 {
+            height: 55px;
+            background-color: red; /* For browsers that do not support gradients */
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+        }
+    </style>
+
+</head>
+<body>
+
+    <table id="grad1" style="color:#ffffff">
+        <!--(table row) <tr> define una fila de celdas en una tabla-->
+        <tr>
+            <!--<td> define la celda de una tabla que contiene datos-->
+            <td colspan="2" id="titulo">
+                <strong>Nombre completo y apellido</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Edith</td>
+            <td>Rodriguez</td>
+        </tr>
+        <tr>
+            <td>Uriel</td>
+            <td>Mendoza</td>
+        </tr>
+        <tr>
+            <td>Carlos</td>
+            <td>Mendoza</td>
+        </tr>
+    </table>
+
+    <table>
+        <thead>
+            <tr>Mes</tr>
+            <tr>Total</tr>
+        </thead>
+            <tbody>
+                <tr>
+                    <td>Enero</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>Febrero</td>
+                    <td>$150</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Suma</td>
+                    <td>$250</td>
+                </tr>
+            </tfoot>
+    </table>
+    
+</body>
+</html>
