@@ -113,7 +113,6 @@
             var lineHeight = parseFloat(getComputedStyle(lyricsContainer).lineHeight);
             lyricsContainer.scrollTop = lineHeight * (currentLine - 1);
 
-            // Ocultar todas las líneas de la letra de la canción excepto la actual
             var lyrics = lyricsContainer.querySelectorAll("p");
             for (var i = 0; i < lyrics.length; i++) {
                 if (i == currentLine - 1) {
