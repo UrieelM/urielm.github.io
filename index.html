@@ -1,25 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal INDEX</title>
     <link rel="stylesheet" href="indexvalores/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <audio id="audio1" loop>
+        <source src="indexvalores/audio/musica.mp3" type="audio/mpeg" data-start="7">
+        Este navegador no acepta formatos de audio
+    </audio>
+    <audio id="audio2">
+        <source src="indexvalores/audio/puerta.mp3" type="audio/mpeg" data-start="1">
+        Este navegador no acepta formatos de audio
+    </audio>
+    <audio id="audio3">
+        <source src="indexvalores/audio/yo.mp3" type="audio/mpeg" data-start="1">
+        Este navegador no acepta formatos de audio
+    </audio>
+    <!--LYRICAAAAAAAAAAAA-->
+    <div class="lyrics" id="lyrics-container" style="display:none;">
+        <p id="lyrics-1">You ought to know that</p>
+        <p id="lyrics-2">I think we're one and the same</p>
+        <p id="lyrics-3">I don't think we could help it</p>
+        <p id="lyrics-4">No, I don't think we could help it</p>
+        <p id="lyrics-5">We don't talk much</p>
+        <p id="lyrics-6">Guess 'cause nothing has changed</p>
+        <p id="lyrics-7">And I'm not sure I like it</p>
+        <p id="lyrics-8">And I'm so tired of fighting</p>
+        <p id="lyrics-9">If I told you, you know how to</p>
+        <p id="lyrics-10">Go and break my heart in two</p>
+        <p id="lyrics-11">'Cause I would anyways</p>
+        <p id="lyrics-11"></p>
+        
+        <p id="lyrics-12">We'd end up like always</p>
+        <p id="lyrics-13">You know me, you better show me</p>
+        <p id="lyrics-14">That you could say it to my face</p>
+        <p id="lyrics-15">'Cause you know we're the same</p>
+        <p id="lyrics-16">There's worse things I can take</p>
+        <p id="lyrics-16"></p>
+        <p id="lyrics-16"></p>
+        <p id="lyrics-16"></p>
+
+        <p id="lyrics-17">I know you hate it</p>
+        <p id="lyrics-18">When there's nothing to say</p>
+        <p id="lyrics-19">I'm not quite sure we'd fix it</p>
+        <p id="lyrics-20">Guess we're so used to it</p>
+        <p id="lyrics-21">Wish I had known this</p>
+        <p id="lyrics-22">From the beginning</p>
+        <p id="lyrics-23">We find it hard to work out</p>
+        <p id="lyrics-24">Why we have all this doubt</p>
+        <p id="lyrics-25">If I told you, you know how to</p>
+        <p id="lyrics-26">Go and break my heart in two</p>
+        <p id="lyrics-27">Cause I would anyways</p>
+        <p id="lyrics-27"></p>
+
+        <p id="lyrics-28">We'd end up like always</p>
+        <p id="lyrics-29">You know me, you better show me</p>
+        <p id="lyrics-30">That you could say it to my face</p>
+        <p id="lyrics-31">'Cause you know we're the same</p>
+        <p id="lyrics-32">There's worse things I can take</p>
+    </div>
+
+    <script>
+        document.getElementById("lyrics-button").style.display = "none";
+        function playAudio() {
+            var audioElement = document.getElementById("audio1");
+            if (audioElement.canPlayType("audio/mpeg")) {
+                audioElement.play();
+                setInterval(updateLyrics, 1500);
+                document.getElementById("lyrics-button").style.display = "block";
+            } else {
+                alert("Este navegador no acepta formatos de audio");
+            }
+        }
+
+        function pauseAudio() {
+            var audioElement = document.getElementById("audio1");
+            audioElement.pause();
+        }
+
+        function playAudio2() {
+            var audioElement = document.getElementById("audio2");
+            audioElement.play();
+        }
+
+        function playAudio3() {
+            var audioElement = document.getElementById("audio3");
+            audioElement.play();
+        }
+        function toggleLyrics() {
+            var lyricsContainer = document.getElementById("lyrics-container");
+            if (lyricsContainer.style.display === "none") {
+                lyricsContainer.style.display = "block";
+            } else {
+                lyricsContainer.style.display = "none";
+            }
+        }
+
+        function updateLyrics() {
+            var lyricsContainer = document.getElementById("lyrics-container");
+            var audioElement = document.getElementById("audio1");
+            var startTime = parseFloat(audioElement.querySelector("source").getAttribute("data-start"));
+            var currentTime = audioElement.currentTime - startTime;
+            var currentLine = Math.floor(currentTime / 3) + 1;
+            var lineHeight = parseFloat(getComputedStyle(lyricsContainer).lineHeight);
+            lyricsContainer.scrollTop = lineHeight * (currentLine - 1);
+
+            // Ocultar todas las líneas de la letra de la canción excepto la actual
+            var lyrics = lyricsContainer.querySelectorAll("p");
+            for (var i = 0; i < lyrics.length; i++) {
+                if (i == currentLine - 1) {
+                    lyrics[i].style.display = "block";
+                } else {
+                    lyrics[i].style.display = "none";
+                }
+            }
+        }
+
+    </script>
+
 </head>
+
 <body>
+
     <div class="hero">
         <nav>
-            <img src="indexvalores/images/logo.png" class="logo">
-            
+            <img onclick="playAudio2()" src="indexvalores/images/logo.png" class="logo">
+
             <ul>
+
+
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="#">ABOUT</a></li>
-                <li><a href="#">PORTFOLIO</a></li>
-                
+                <li><a href="practicas.html">PORTFOLIO</a></li>
+                <li onclick="playAudio()"><a href="#">PLAYME</a></li>
+                <li onclick="pauseAudio()"><a href="#">PAUSE</a></li>
+                <li onclick="toggleLyrics()"><a href="#">LYRICS</a></li>
+
             </ul>
-            
+
         </nav>
         <div class="detel">
             <h1>Hola, yo soy <span>Uriel</span></h1>
@@ -28,14 +154,18 @@
         </div>
         <div class="images">
             <img src="indexvalores/images/shape.png" class="shape">
-            <img src="indexvalores/images/fotomia.png" class="fotomia">
+            <img onclick="playAudio3()" src="indexvalores/images/fotomia.png" class="fotomia">
+
+
         </div>
 
         <div class="social">
-           <a href="https://www.instagram.com/urieelm/?next=%2F"><i class="fab fa-instagram"></i></a>
-           <a href="https://github.com/UrieelM"><i class="fab fa-github"></i></a>
-           <a href="https://www.linkedin.com/in/uriel-mendoza-19b205248/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/urieelm/?next=%2F"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/UrieelM"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/uriel-mendoza-19b205248/"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </div>
+
 </body>
+
 </html>
