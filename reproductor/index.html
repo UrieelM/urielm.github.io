@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reproductor</title>
+    <script src="https://kit.fontawesome.com/f5685a8cf8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+    
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="player">
+            <div class="player__controls">
+                <div class="player__btn player__btn--small" id="previous">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <h5 class="player__title">playing now</h5>
+                <div class="player__btn player__btn--small" id="icon-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="player__album">
+                <!--COlOLCA AQUI EL COVER DEL ALBUM-->
+                <!--<img src="imagenes/Boy's a liar pt.2.jpeg" alt="Album Cover" class="player__img" loading="lazy" />-->
+                <img src="imagenes/Beautiful Boy (Darling Boy).jpg" alt="Album Cover" class="player__img" loading="lazy" />
+            </div>
+            <!--COlOLCA AQUI LA INFORMACION DEL ALBUM-->
+            <!--<h2 class="player__artist">PinkPantheress, Ice Spice</h2>
+            <h3 class="player__song">Boy's a liar pt.2</h3>-->
+
+            <h2 class="player__artist">John Lennon</h2>
+            <h3 class="player__song">Beautiful Boy (Darling Boy)</h3>
+
+            <input type="range" value="20" min="0" class="player__level" id="range" />
+            <div class="audio-duration">
+                <!--COlOLCA AQUI LA DURACION DEL ALBUM-->
+                <div class="start">00:01</div>
+                <!--<div class="end">02:15</div>-->
+                <div class="end">04:01</div>
+            </div>
+
+            <audio class="player__audio" controls id="audio" controls>
+                <!--COlOLCA AQUI EL LINK DEL ALBUM-->
+                <!--<source src="canciones/Boy's a liar pt.2.mp3"-->
+                <source src="canciones/Beautiful Boy (Darling Boy).mp3"
+                    type="audio/mpeg" />
+            </audio>
+
+            <div class="player__controls">
+                <div class="player__btn player__btn--medium" id="backward">
+                    <i class="fas fa-backward"></i>
+                </div>
+
+                <div class="player__btn player__btn--medium blue play" id="play">
+                    <i class="fas fa-play play-btn"></i>
+                    <i class="fas fa-pause pause-btn hide"></i>
+                </div>
+
+                <div class="player__btn player__btn--medium" id="forward">
+                    <i class="fas fa-forward"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById("audio");
+        const playPause = document.getElementById("play");
+
+        playPause.addEventListener("click", () => {
+            if (audio.paused || audio.ended) {
+                playPause.querySelector(".pause-btn").classList.toggle("hide");
+                playPause.querySelector(".play-btn").classList.toggle("hide");
+                audio.play();
+            } else {
+                audio.pause();
+                playPause.querySelector(".pause-btn").classList.toggle("hide");
+                playPause.querySelector(".play-btn").classList.toggle("hide");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
