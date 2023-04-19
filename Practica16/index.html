@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <h1 id="titulo">Este es un titulo</h1>
+    <p id="texto">Esto es un parrafo</p>
+    <ul id="colores">
+        <li>Rojo</li>
+        <li>Verde</li>
+        <li>Azul</li>
+    </ul>
+    
+    <script>
+        var titulo;
+        titulo = document.getElementById("titulo");
+        titulo.innerHTML = "Feliz regreso de vacaciones";
+        
+        var texto;
+        texto = document.getElementById("texto");
+        texto.style.fontSize = "50px";
+        texto.style.backgroundColor = "red";
+
+        var colores;
+        colores = document.getElementById("colores");
+        colores.style.fontSize = "50px";
+        colores.style.color = "purple";
+        colores.style.display = "none";
+        colores.style.display = "block";
+
+        function cambiarColor(){
+            console.log("Si entro a la funcion", 5 + 10);
+            colores.style.color = "#ff0000";
+        }
+
+        cambiarColor();
+
+        document.write("Este es un numero generado con 35: ");
+        document.write("50 / 60");
+        //window.alert("Esto es una alerta"); 
+        //para comentar de manera rapida se puede usar CTRL + K + C
+
+        var cadena = "Hola consola de 35";
+
+        let a, b, c;
+        a = 5;
+        b = 6;
+        c = a + b;
+        console.log(c);
+
+        var radio = 10;
+        const PI = 3.1416;
+
+        function calcularArea(){
+            let areaTemporal = PI * radio * radio;
+            return areaTemporal
+        }
+
+        console.log(calcularArea());
+
+        let numero
+
+    </script>
+</body>
+</html>
